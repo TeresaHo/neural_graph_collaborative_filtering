@@ -82,9 +82,9 @@ class Data(object):
     def get_adj_mat(self):
         
         adj_mat, norm_adj_mat, mean_adj_mat = self.create_adj_mat()
-        sp.save_npz(self.path + '/s_adj_mat.npz', adj_mat)
-        sp.save_npz(self.path + '/s_norm_adj_mat.npz', norm_adj_mat)
-        sp.save_npz(self.path + '/s_mean_adj_mat.npz', mean_adj_mat)
+        #sp.save_npz(self.path + '/s_adj_mat.npz', adj_mat)
+        #sp.save_npz(self.path + '/s_norm_adj_mat.npz', norm_adj_mat)
+        #sp.save_npz(self.path + '/s_mean_adj_mat.npz', mean_adj_mat)
         return adj_mat, norm_adj_mat, mean_adj_mat
 
     def create_adj_mat(self):
