@@ -80,18 +80,11 @@ class Data(object):
                     self.test_set[uid] = test_items
 
     def get_adj_mat(self):
-        try:
-            t1 = time()
-            adj_mat = sp.load_npz(self.path + '/s_adj_mat.npz')
-            norm_adj_mat = sp.load_npz(self.path + '/s_norm_adj_mat.npz')
-            mean_adj_mat = sp.load_npz(self.path + '/s_mean_adj_mat.npz')
-            print('already load adj matrix', adj_mat.shape, time() - t1)
-
-        except Exception:
-            adj_mat, norm_adj_mat, mean_adj_mat = self.create_adj_mat()
-            sp.save_npz(self.path + '/s_adj_mat.npz', adj_mat)
-            sp.save_npz(self.path + '/s_norm_adj_mat.npz', norm_adj_mat)
-            sp.save_npz(self.path + '/s_mean_adj_mat.npz', mean_adj_mat)
+        
+        adj_mat, norm_adj_mat, mean_adj_mat = self.create_adj_mat()
+        sp.save_npz(self.path + '/s_adj_mat.npz', adj_mat)
+        sp.save_npz(self.path + '/s_norm_adj_mat.npz', norm_adj_mat)
+        sp.save_npz(self.path + '/s_mean_adj_mat.npz', mean_adj_mat)
         return adj_mat, norm_adj_mat, mean_adj_mat
 
     def create_adj_mat(self):
